@@ -8,6 +8,11 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
+    <!-- include dependencies manually -->
+    <link href="path/to/node_modules/normalize.css/normalize.css" rel="stylesheet" />
+    <link href="path/to/node_modules/@blueprintjs/core/lib/css/blueprint.css" rel="stylesheet" />
+    <link href="path/to/node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css" rel="stylesheet" />
+
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <!--
@@ -22,6 +27,15 @@
     <title>React App</title>
   </head>
   <body>
+   <script src="https://unpkg.com/classnames@^2.2"></script>
+   <script src="https://unpkg.com/dom4@^1.8"></script>
+   <script src="https://unpkg.com/react@^16.2.0/umd/react.production.min.js"></script>
+   <script src="https://unpkg.com/react-dom@^16.2.0/umd/react-dom.production.min.js"></script>
+   <script src="https://unpkg.com/react-transition-group@^2.2.1/dist/react-transition-group.min.js"></script>
+   <script src="https://unpkg.com/popper.js@^1.12.6/dist/umd/popper.js"></script>
+   <script src="https://unpkg.com/react-popper@~0.7.4/dist/react-popper.min.js"></script>
+   <script src="https://unpkg.com/@blueprintjs/core@^2.0.0"></script>
+   <script src="https://unpkg.com/@blueprintjs/icons@^2.0.0"></script>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
