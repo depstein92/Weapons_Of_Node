@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/index.css';
 import MenuContent from './Menu_Content';
 import { Popover,

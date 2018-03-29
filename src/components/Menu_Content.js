@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+
 
 const MenuContent = () => {
   return (
     <div>
-    <div>Home</div>
-    <div>PlayGround</div>
-    <div>About</div>
+     <div>Home</div>
+     <div>PlayGround</div>
+     <div>About</div>
     </div>
   )
 }
