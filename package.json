@@ -5,6 +5,8 @@
   "dependencies": {
     "@blueprintjs/core": "^2.0.1",
     "api-npm": "^1.0.0",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",

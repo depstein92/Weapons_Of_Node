@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { FormGroup } from '@blueprintjs/core'
 import { connect } from 'react-redux';
 import { itemsFetchData } from '../actions/index';
-import api from 'api-npm';
 
 class SearchBar extends Component{
 
@@ -17,10 +16,13 @@ class SearchBar extends Component{
     event.preventDefault();
   }
 
+  componentDidMount(){
+   this.props.fetchData('react');
+  }
 
 
   render(){
-   console.log(this.props);
+   console.log('props: ', this.props);
    if(this.props.errors){
      return;
    }
@@ -51,7 +53,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
           return {
-              fetchData: (url) => dispatch(itemsFetchData(url))
+              fetchData: (word) => dispatch(itemsFetchData(word))
             };
         };
 
