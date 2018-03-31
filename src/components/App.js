@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import '../styles/App.css';
 import SearchBar from '../containers/SearchBar';
+import JSPlayGround from '../containers/JSPlayGround';
+
+import { HashRouter, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <HashRouter>
+      <div>
         <Header />
-        <SearchBar />
+        <Route exact path='/' component={SearchBar} />
+        <Route path='/JSPlayGround' component={JSPlayGround} />
       </div>
+      </HashRouter>
     );
   }
 }

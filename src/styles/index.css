@@ -1,9 +1,39 @@
-@import "~@blueprintjs/core/lib/css/blueprint.css";
-@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 
+.embedFrame{
+  margin: 100px 350px;
+  width: 50%
+}
+.embed-title{
+  display: flex;
+  align-content: center;
+}
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.search-container{
+  width: inherit;
+  height: inherit;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.search-container .form-group-search{
+ margin: 15%;
+ display: flex;
+ justify-content: center;
+ padding: 5%;
+ border-style: solid;
+ margin-bottom: 4%;
+}
+
+.search-container .content .content-markdown{
+  justify-content: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 10%;
+}
+
+.search-container .spinner{
+display: flex;
+justify-content: center;
 }

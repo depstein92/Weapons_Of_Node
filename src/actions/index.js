@@ -23,7 +23,6 @@ export const itemsFetchDataSuccess = (items) => {
 }
 
 export const itemsFetchData = (word) => {
-
   return (dispatch) => {
   dispatch(itemsAreLoading(true));
 
@@ -36,26 +35,10 @@ export const itemsFetchData = (word) => {
 
 
   let sendData = _.after(2, ({ details }, dispatch) => {
-    dispatch(itemsAreLoading(false));
     dispatch(itemsFetchDataSuccess(details));
+    dispatch(itemsAreLoading(false));
   });
 
   sendData();
  }
 }
-/*    return (dispatch) => {
-        dispatch(itemsAreLoading(true));
-
-        axios.get(url)
-            .then((response) => {
-                if (response.status !== 200) {
-                    throw Error(response.statusText);
-                }
-
-                dispatch(itemsAreLoading(false));
-
-                return response;
-            })
-            .then((response) => dispatch(itemsFetchDataSuccess(response.data)))
-            .catch(() => dispatch(itemsHaveError(true)));
-    };*/
