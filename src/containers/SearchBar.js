@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { itemsFetchData } from '../actions/index';
 import { PropagateLoader } from 'react-spinners';
-import BackgroundSlideshow from 'react-background-slideshow';
 import ReactMarkdown from 'react-markdown';
 import '../styles/index.css';
-import _ from 'lodash';
+import BackgroundSlideshow from 'react-background-slideshow';
+import Header from '../components/Header';
+import cloudyPic from '../styles/cloudy.jpg';
+import dockPic from '../styles/dock.jpg';
+import highwayPic from '../styles/highway.jpg';
+import mistPic from '../styles/mist.jpg'
 import { ControlLabel,
          FormGroup,
          FormControl,
@@ -26,7 +30,6 @@ class SearchBar extends Component{
   }
 
   onFormSubmit(event){
-    console.log('I have been submitted')
     event.preventDefault();
     this.renderInfo();
   }
@@ -39,14 +42,12 @@ class SearchBar extends Component{
     this.props.fetchData(input);
   }
 
-
   render(){
 
    console.log(this.props);
 
     return (
       <div className="search-container">
-
         <FormGroup
           className="form-group-search"
           bsSize="lg"
@@ -62,7 +63,6 @@ class SearchBar extends Component{
           <FormControl.Feedback />
           <Button type="submit" onClick={this.onFormSubmit}>Submit</Button>
         </FormGroup>
-
           { this.props.isLoading === true ?
             <div className="spinner">
               <PropagateLoader  />
@@ -76,7 +76,7 @@ class SearchBar extends Component{
                   </div>
               }
             </div> }
-     </div>
+            </div>
     );
   }
 }
