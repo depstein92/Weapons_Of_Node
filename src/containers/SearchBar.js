@@ -4,16 +4,15 @@ import { itemsFetchData } from '../actions/index';
 import { PropagateLoader } from 'react-spinners';
 import ReactMarkdown from 'react-markdown';
 import '../styles/index.css';
-import BackgroundSlideshow from 'react-background-slideshow';
 import Header from '../components/Header';
-import cloudyPic from '../styles/cloudy.jpg';
-import dockPic from '../styles/dock.jpg';
-import highwayPic from '../styles/highway.jpg';
-import mistPic from '../styles/mist.jpg'
+import NPMHeader from '../components/NPMHeader';
+import npmIcon from '../styles/npm_icon.png';
+import Footer from '../components/Footer';
 import { ControlLabel,
          FormGroup,
          FormControl,
-         Button } from 'react-bootstrap';
+         Button,
+         Image } from 'react-bootstrap';
 
 
 class SearchBar extends Component{
@@ -44,15 +43,16 @@ class SearchBar extends Component{
 
   render(){
 
-   console.log(this.props);
+  console.log(this.props);
 
     return (
+
       <div className="search-container">
+        <NPMHeader />
         <FormGroup
           className="form-group-search"
           bsSize="lg"
           controlId="formBasicText">
-          <ControlLabel>NPM Search</ControlLabel>
           <FormControl
             type="text"
             value={this.state.input}
@@ -76,7 +76,8 @@ class SearchBar extends Component{
                   </div>
               }
             </div> }
-            </div>
+      <Footer />
+       </div>
     );
   }
 }
