@@ -50,3 +50,14 @@ justify-content: center;
   background:#6cf;
   margin-top: 200px;
 }
+
+.npmIcon{
+  width: 230px;
+  height: 230px;
+  background-image: url('./npm_icon.png');
+  border-radius: 100px;
+  display: flex;
+  align-self: center;
+  margin-top: 10%;
+  margin-bottom: -15%;
+}
