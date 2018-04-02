@@ -56,7 +56,7 @@ class SearchBar extends Component{
           <FormControl
             type="text"
             value={this.state.input}
-            placeholder="Enter text"
+            placeholder="Search Any NPM Package"
             onChange={this.handleChange}
             style={{ width: "700px"}}
           />
