@@ -21,8 +21,7 @@ class SearchBar extends Component{
     super(props);
 
     this.state = {
-      value: '',
-      details: {} };
+      value: '' };
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.renderInfo = this.renderInfo.bind(this);
@@ -76,7 +75,7 @@ class SearchBar extends Component{
                   </div>
               }
             </div> }
-      <Footer />
+        <Footer />
        </div>
     );
   }

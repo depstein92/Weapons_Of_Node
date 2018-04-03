@@ -63,3 +63,13 @@
   margin-bottom: -15%;
   border-style: double;
 }
+
+.add-package-label{
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+.add-package-label .add-import-label{
+  margin-right: 5%;
+}
