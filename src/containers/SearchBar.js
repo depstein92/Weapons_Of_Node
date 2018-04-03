@@ -4,15 +4,11 @@ import { itemsFetchData } from '../actions/index';
 import { PropagateLoader } from 'react-spinners';
 import ReactMarkdown from 'react-markdown';
 import '../styles/index.css';
-import Header from '../components/Header';
 import NPMHeader from '../components/NPMHeader';
-import npmIcon from '../styles/npm_icon.png';
 import Footer from '../components/Footer';
-import { ControlLabel,
-         FormGroup,
+import { FormGroup,
          FormControl,
-         Button,
-         Image } from 'react-bootstrap';
+         Button } from 'react-bootstrap';
 
 
 class SearchBar extends Component{

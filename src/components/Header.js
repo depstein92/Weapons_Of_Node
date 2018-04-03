@@ -20,7 +20,7 @@ class Header extends Component{
    }
 
       addImport(){
-      if(this.props.items.name != undefined){
+      if(this.props.items.name !== undefined){
          this.setState({ itemsInImports:
             this.state.itemsInImports.concat([this.props.items.name])});
       } else {
@@ -43,7 +43,9 @@ class Header extends Component{
           <MenuItem eventKey="4.2">
            <Link to="/JSPlayGround">JSPlayGround</Link>
           </MenuItem>
-          <MenuItem eventKey="4.3">Something else here</MenuItem>
+          <MenuItem eventKey="4.3">
+            <Link to="/Search">Search for Packages</Link>
+          </MenuItem>
           <MenuItem divider />
           <MenuItem eventKey="4.4">Separated link</MenuItem>
         </NavDropdown>
@@ -61,13 +63,9 @@ class Header extends Component{
           eventKey="4"
           title="Imported Packages"
           id="nav-dropdown">
-
-        { this.state.itemsInImports.forEach((obj) => {
-            <NavItem>
-               obj
-            </NavItem>
-        }) }
-
+      <NavItem>
+      { this.state.itemsInImports}
+      </NavItem>
         </NavDropdown>
        </Nav>
      );
