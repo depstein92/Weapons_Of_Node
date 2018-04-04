@@ -16,11 +16,13 @@ class Header extends Component{
 
       this.state ={
          itemsInImports: [],
-         show: false
+         show: false,
+         itemsNotAdded: true
       };
       this.addImport = this.addImport.bind(this);
       this.handleDismiss = this.handleDismiss.bind(this);
       this.showImports = this.showImports.bind(this);
+      this.itemDismiss = this.itemDismiss.bind(this);
    }
 
       addImport(){
@@ -30,13 +32,18 @@ class Header extends Component{
             this.state.itemsInImports.concat([this.props.items.name])});
 
       } else {
-         alert('No items have been added');
+         this.setState({ itemsNotAdded: false })
       }
    }
+
+     itemDismiss(){
+        this.setState({ itemsNotAdded: true })
+     }
 
      handleDismiss(){
         this.setState({ show: false });
      }
+
 
      showImports(name){
       if(name === undefined){
@@ -59,6 +66,14 @@ class Header extends Component{
              </h4>
          </Alert>)
 
+    const itemsNotAdded = this.state.itemsNotAdded === true ? (<div></div>) :
+          (<Alert className="items-not-added"
+                  bsStyle="info"
+                  onMouseOver={this.itemDismiss}>
+            <h4 className="alertbox-message">
+               No Packages Searched!
+            </h4>
+            </Alert>)
 
      return (
        <Nav bsStyle="tabs" activeKey="1" >
@@ -84,6 +99,7 @@ class Header extends Component{
           onClick={ this.addImport } >
           <span className="add-package-label">
           <span className="add-import-label">Add Import</span>
+          { itemsNotAdded }
           <Glyphicon glyph="glyphicon glyphicon-plus" />
           </span>
         </NavItem>
