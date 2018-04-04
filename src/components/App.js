@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from '../containers/Header';
 import SearchBar from '../containers/SearchBar';
 import JSPlayGround from '../containers/JSPlayGround';
 import LandingPage from './LandingPage';
