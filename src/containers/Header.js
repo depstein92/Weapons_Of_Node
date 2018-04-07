@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/index.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addImport } from '../actions/index';
 import { NavDropdown,
          Nav,
          MenuItem,
@@ -50,13 +51,15 @@ class Header extends Component{
          return <div> No Imports </div>;
       }
          return(
-           <NavItem key={name}>
+           <NavItem
+            key={name}
+            onClick={ this.props.fetchPackageName(name) }>
            { name }
            </NavItem>)
      }
 
     render(){
-    
+
     const alert = this.state.show === false ? (<div></div>) : (
           <Alert className="header-alertbox"
                  bsStyle="info"
@@ -126,5 +129,11 @@ const mapStateToProps = (state) => {
         };
     };
 
+    const mapDispatchToProps = (dispatch) => {
+            return {
+               fetchPackageName: (name) => dispatch(addImport(name))
+             };
+         };
 
-export default connect(mapStateToProps)(Header);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

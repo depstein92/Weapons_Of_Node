@@ -38,10 +38,7 @@ class SearchBar extends Component{
 
   render(){
 
-  console.log(this.props);
-
     return (
-
       <div className="search-container">
         <NPMHeader />
         <FormGroup

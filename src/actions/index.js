@@ -42,3 +42,32 @@ export const itemsFetchData = (word) => {
   sendData();
  }
 }
+
+/*====ACTIONS FOR IMPORT IN JSPLAYGROUND===*/
+
+export const packageNameSuccess = (packageName) => {
+  return {
+    type: "PACKAGE_FETCH_SUCCESS",
+    packageName
+  }
+}
+
+
+export const addImport = (obj) => {
+
+  return (dispatch) => {
+
+   const addExpToPackage = (...obj) => {
+     let item = `const ${obj} = require(${obj})`
+     return item;
+    }
+
+   let expression = addExpToPackage`${obj}`;
+
+   let packageAssign = expression.replace(/,/ig, '');
+
+   dispatch(packageNameSuccess(packageAssign));
+
+  }
+
+}
