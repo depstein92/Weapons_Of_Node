@@ -3,27 +3,32 @@ import Embed from 'react-runkit';
 import { connect } from 'react-redux';
 import { addImport } from '../actions/index';
 import '../styles/index.css';
+import _ from 'lodash';
+
+
 
 class JSPlayGround extends Component{
 
  constructor(props){
    super(props)
 
-   this.state = { libraries: `let packages = require(packages)` };
+   this.state = { library: '/*Add imports here*/' };
+ }
+
+ componentDidMount(){
+    if(this.props.packageName !== undefined){
+       this.setState({ library: this.props.packageName })
+    }
  }
 
 
   render(){
 
-   const packageName = this.props.packageName === undefined ?
-         '' : this.props.packageName;
-    console.log('this is packageName', packageName)
-    console.log('this is props', this.props);
+    
     return (
     <div className="embedFrame">
-      <h1 className="embed-title"> My Javascript Playground </h1>
        <Embed
-        source={ packageName }
+        source={ this.state.library }
         readOnly={ false }
         title='Hello World'
         minHeight="500px" />
