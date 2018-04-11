@@ -37,7 +37,7 @@ class SearchBar extends Component{
   }
 
   render(){
-    console.log('props', this.props);
+    
     return (
       <div className="search-container">
         <NPMHeader />
@@ -55,19 +55,21 @@ class SearchBar extends Component{
           <FormControl.Feedback />
           <Button type="submit" onClick={this.onFormSubmit}>Submit</Button>
         </FormGroup>
+
           { this.props.isLoading === true ?
             <div className="spinner">
               <PropagateLoader  />
             </div> :
 
             <div className="content">
-            { this.props.items.readme === 'ERROR: No README data found!' ||
+            { this.props.items.readme === "ERROR: No README.md file found!" ||
                this.props.hasError === true ?
                 <div className="errorInPackage"></div> :
                      <div></div>
              }
 
-             { Array.isArray(this.props.items) === true ?
+             { Array.isArray(this.props.items) === true ||
+                this.props.hasError === true ?
                  <div></div> :
                   <div className="content-markdown">
                     <ReactMarkdown source={ this.props.items.readme } />
@@ -92,7 +94,7 @@ const mapDispatchToProps = (dispatch) => {
           return {
               fetchData: (word) => dispatch(itemsFetchData(word))
             };
-        };
+      };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

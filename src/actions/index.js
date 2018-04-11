@@ -23,7 +23,7 @@ export const itemsFetchDataSuccess = (items) => {
 }
 
 const isObjectEmpty = (obj) => {
-    for(var key in obj) {
+    for(let key in obj) {
         if(obj.hasOwnProperty(key))
             return false;
     }
@@ -35,23 +35,25 @@ export const itemsFetchData = (word) => {
 
   dispatch(itemsAreLoading(true));
 
-  api.getdetails(word, function(data){
+    api.getdetails(word, async function(data){
 
       if(data.readme === "ERROR: No README data found!" ||
          isObjectEmpty(data) === true){ /*ERROR IS HERE*/
 
         dispatch(itemsHaveError(true));
-      }
-      sendData({ details: data}, dispatch)
+        dispatch(itemsAreLoading(false));
+      } else {
+        await sendData({ details: data}, dispatch);
+    }
   });
 
-
   let sendData = _.after(2, ({ details }, dispatch) => {
+    dispatch(itemsHaveError(false));
     dispatch(itemsFetchDataSuccess(details));
     dispatch(itemsAreLoading(false));
   });
-
   sendData();
+
  }
 }
 
