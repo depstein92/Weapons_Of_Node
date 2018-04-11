@@ -22,16 +22,28 @@ export const itemsFetchDataSuccess = (items) => {
     };
 }
 
+const isObjectEmpty = (obj) => {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+  }
+
 export const itemsFetchData = (word) => {
   return (dispatch) => {
+
   dispatch(itemsAreLoading(true));
 
   api.getdetails(word, function(data){
-      if(!data){
-        throw new Error('there is an error in getdetails');
+
+      if(data.readme === "ERROR: No README data found!" ||
+         isObjectEmpty(data) === true){ /*ERROR IS HERE*/
+
+        dispatch(itemsHaveError(true));
       }
       sendData({ details: data}, dispatch)
-    });
+  });
 
 
   let sendData = _.after(2, ({ details }, dispatch) => {

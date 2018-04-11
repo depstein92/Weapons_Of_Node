@@ -37,7 +37,7 @@ class SearchBar extends Component{
   }
 
   render(){
-
+    console.log('props', this.props);
     return (
       <div className="search-container">
         <NPMHeader />
@@ -61,6 +61,12 @@ class SearchBar extends Component{
             </div> :
 
             <div className="content">
+            { this.props.items.readme === 'ERROR: No README data found!' ||
+               this.props.hasError === true ?
+                <div className="errorInPackage"></div> :
+                     <div></div>
+             }
+
              { Array.isArray(this.props.items) === true ?
                  <div></div> :
                   <div className="content-markdown">

@@ -79,9 +79,9 @@ class Header extends Component{
             </Alert>)
 
      return (
-       <Nav bsStyle="tabs" activeKey="1" >
-       <NavItem eventKey={1} href="/home">
-         Weapons of Node
+       <Nav bsStyle="tabs">
+       <NavItem eventKey={1}>
+         <Link to="/">Weapons_of_Node</Link>
        </NavItem>
         <NavDropdown eventKey="4" title="Menu" id="nav-dropdown">
           <MenuItem eventKey="4.1">
@@ -98,7 +98,6 @@ class Header extends Component{
         </NavDropdown>
         <NavItem
           eventKey={2}
-          pullRight={ true }
           onClick={ this.addImport } >
           <span className="add-package-label">
           <span className="add-import-label">Add Import</span>

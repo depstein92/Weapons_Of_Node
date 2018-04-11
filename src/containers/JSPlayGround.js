@@ -15,20 +15,20 @@ class JSPlayGround extends Component{
    this.state = { library: '/*Add imports here*/' };
  }
 
- componentDidMount(){
-    if(this.props.packageName !== undefined){
-       this.setState({ library: this.props.packageName })
-    }
+ componentWillMount(){
+   if (this.props.packageName !== this.state.library) {
+
+    this.setState({ library: this.state.library + this.props.packageName });
+  }
  }
 
 
   render(){
 
-    
     return (
     <div className="embedFrame">
        <Embed
-        source={ this.state.library }
+        source={ `${this.state.library}` }
         readOnly={ false }
         title='Hello World'
         minHeight="500px" />
