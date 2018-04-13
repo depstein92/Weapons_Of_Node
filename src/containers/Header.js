@@ -28,6 +28,7 @@ class Header extends Component{
 
       addImport(){
       if(this.props.items.name !== undefined){
+
          this.setState({ show: true });
          this.setState({ itemsInImports:
             this.state.itemsInImports.concat([this.props.items.name])});

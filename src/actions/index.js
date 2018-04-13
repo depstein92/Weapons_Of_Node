@@ -30,6 +30,7 @@ const isObjectEmpty = (obj) => {
     return true;
   }
 
+
 export const itemsFetchData = (word) => {
   return (dispatch) => {
 
@@ -43,7 +44,7 @@ export const itemsFetchData = (word) => {
         dispatch(itemsHaveError(true));
         dispatch(itemsAreLoading(false));
       } else {
-        await sendData({ details: data}, dispatch);
+        await sendData({ details: data }, dispatch);
     }
   });
 
@@ -66,22 +67,29 @@ export const packageNameSuccess = (packageName) => {
   }
 }
 
+export const isLibraryImported = (bool) => {
+  return {
+    type: "LIBRARY_IS_IMPORTED_SUCCESS",
+    libImport: bool
+  }
+}
 
-export const addImport = (obj) => {
+export const addImport =  (obj) => {
 
-  return (dispatch) => {
+  return  (dispatch) => {
 
    const addExpToPackage = (...obj) => {
-     let item = `const ${obj} = require(${obj})`
+
+     let item = `const ${obj} = require(${obj})_`
      return item;
-    }
+   }
 
    let expression = addExpToPackage`${obj}`;
 
    let packageAssign = expression.replace(/,/ig, '');
 
    dispatch(packageNameSuccess(packageAssign));
-
-  }
+   dispatch(isLibraryImported(true));
+ }
 
 }
