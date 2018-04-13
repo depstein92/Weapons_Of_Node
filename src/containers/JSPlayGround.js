@@ -10,43 +10,44 @@ class JSPlayGround extends Component{
  constructor(props){
    super(props)
 
-   this.state = {
-     library: [`const packageName = require('packageName')` ],
-     imports: ''  };
+   this.state = { library: [`const packageName = require('packageName')` ] };
 
+   this.getImport = this.getImport.bind(this);
  }
 
  componentWillMount(){
    this.setState({ library: this.state.library.concat([this.props.packageName]) });
  };
 
- componentDidMount(){
+ getImport(){
+
   if(this.props.libraryIsImported === true){
 
-    let regExp = /require/gi;
-    let numOfImports = this.state.library[1].match(regExp).length;
-    console.log(numOfImports);
-    let splitImports = _.split(this.state.library[1], '_', numOfImports);
-    let deleteDuplicates = _.intersection(splitImports);
+  let regExp = /require/gi;
+  let numOfImports = this.state.library[1].match(regExp).length;
+  let splitImports = _.split(this.state.library[1], '_', numOfImports);
+  let deleteDuplicates = _.intersection(splitImports);
 
-    const combineImports = (obj) => { return obj.join(''); };
-    const finalImportString = combineImports(deleteDuplicates);
+  const combineImports = (obj) => { return obj.join(''); };
+  const finalImportString = combineImports(deleteDuplicates);
 
-    this.setState({ imports: finalImportString })
-  }
-}
+  return finalImportString
+  } else {
+
+  return '/*Place Imports Here*/';
+    }
+ }
 
   render(){
 
-
-  return (
-    <div className="embedFrame">
-       <Embed
-        source={ `${ this.state.imports }` }
-        readOnly={ false }
-        title='Hello World'
-        minHeight="500px" />
-      </div>
+   return (
+     <div className="embedFrame">
+        <Embed
+         source={ `${ this.getImport() }` }
+         readOnly={ false }
+         title='Hello World'
+         minHeight="500px" />
+     </div>
     )
   }
 }
