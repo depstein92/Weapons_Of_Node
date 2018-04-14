@@ -11,7 +11,6 @@ class JSPlayGround extends Component{
    super(props)
 
    this.state = { library: [`const packageName = require('packageName')` ] };
-
    this.getImport = this.getImport.bind(this);
  }
 
@@ -33,8 +32,7 @@ class JSPlayGround extends Component{
 
   return finalImportString
   } else {
-
-  return '/*Place Imports Here*/';
+     return '/*Place Imports Here*/';
     }
  }
 
