@@ -12,8 +12,8 @@ class App extends Component {
       <HashRouter>
       <div>
         <Header />
-        <Route exact path='/' component={SearchBar} />
-        <Route exact path='/Search' component={LandingPage} />
+        <Route exact path='/' component={LandingPage} />
+        <Route exact path='/Search' component={SearchBar} />
         <Route path='/JSPlayGround' component={JSPlayGround} />
       </div>
       </HashRouter>
