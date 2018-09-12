@@ -3,14 +3,14 @@ import '../styles/style1.css';
 
 class LandingPage extends Component{
 
-  render(){
-    return (
-      <ul class="cb-slideshow">
-  	<li>
-  		<span></span>
+ render(){
+  return (
+    <ul class="cb-slideshow">
+  	 <li>
+      <span></span>
   		<div>
-  			<h3>search packages, on us</h3>
-  		</div>
+       <h3>search packages, on us</h3>
+      </div>
   	</li>
   	<li>
      <span></span>

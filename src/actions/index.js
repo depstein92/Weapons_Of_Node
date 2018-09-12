@@ -53,6 +53,7 @@ export const itemsFetchData = (word) => {
     dispatch(itemsFetchDataSuccess(details));
     dispatch(itemsAreLoading(false));
   });
+  
   sendData();
 
  }

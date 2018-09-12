@@ -16,8 +16,7 @@ class SearchBar extends Component{
   constructor(props){
     super(props);
 
-    this.state = {
-      value: '' };
+    this.state = { value: '' };
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.renderInfo = this.renderInfo.bind(this);
@@ -33,11 +32,14 @@ class SearchBar extends Component{
   }
 
   renderInfo(input = this.state.value){
-    this.props.fetchData(input);
+    let { fetchData } = this.props;
+    debugger;
+    fetchData(input);
   }
 
   render(){
-    
+    let { isLoading, items, hasError } = this.props;
+    let { input } = this.state;
     return (
       <div className="search-container">
         <NPMHeader />
@@ -47,7 +49,7 @@ class SearchBar extends Component{
           controlId="formBasicText">
           <FormControl
             type="text"
-            value={this.state.input}
+            value={ input }
             placeholder="Search Any NPM Package"
             onChange={this.handleChange}
             style={{ width: "700px"}}
@@ -56,23 +58,23 @@ class SearchBar extends Component{
           <Button type="submit" onClick={this.onFormSubmit}>Submit</Button>
         </FormGroup>
 
-          { this.props.isLoading === true ?
+          { isLoading === true ?
             <div className="spinner">
               <PropagateLoader  />
             </div> :
 
             <div className="content">
-            { this.props.items.readme === "ERROR: No README.md file found!" ||
-               this.props.hasError === true ?
-                <div className="errorInPackage"></div> :
-                     <div></div>
+            { items.readme === "ERROR: No README.md file found!" ||
+              items.readme === "" ||
+              hasError === true ?
+              <div className="errorInPackage"></div> :
+                  <div></div>
              }
 
-             { Array.isArray(this.props.items) === true ||
-                this.props.hasError === true ?
+             { Array.isArray(items.readme) === true || hasError === true ?
                  <div></div> :
                   <div className="content-markdown">
-                    <ReactMarkdown source={ this.props.items.readme } />
+                    <ReactMarkdown source={ items.readme } />
                   </div>
               }
             </div> }

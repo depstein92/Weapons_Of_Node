@@ -6,7 +6,6 @@
     "api-npm": "^1.0.0",
     "axios": "^0.18.0",
     "enzyme": "^3.3.0",
-    "jest": "^20.4.3",
     "lodash": "^4.17.5",
     "react": "^16.2.0",
     "react-background-slideshow": "^1.0.3",

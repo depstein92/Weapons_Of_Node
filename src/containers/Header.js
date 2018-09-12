@@ -94,8 +94,6 @@ class Header extends Component{
           <MenuItem eventKey="4.3">
             <Link to="/Search">Search for Packages</Link>
           </MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey="4.4">Separated link</MenuItem>
         </NavDropdown>
         <NavItem
           eventKey={2}
