@@ -3,12 +3,14 @@ import '../styles/index.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addImport } from '../actions/index';
+import AboutModal from '../components/About';
 import { NavDropdown,
          Nav,
          MenuItem,
          NavItem,
          Glyphicon,
-         Alert } from 'react-bootstrap';
+         Alert,
+         Button } from 'react-bootstrap';
 
 class Header extends Component{
     constructor(props){
@@ -18,12 +20,14 @@ class Header extends Component{
       this.state ={
          itemsInImports: [],
          show: false,
-         itemsNotAdded: true
+         itemsNotAdded: true,
+         smModalShow: false
       };
       this.addImport = this.addImport.bind(this);
       this.handleDismiss = this.handleDismiss.bind(this);
       this.showImports = this.showImports.bind(this);
       this.itemDismiss = this.itemDismiss.bind(this);
+      this.closeModal = this.closeModal.bind(this);
    }
 
       addImport(){
@@ -46,6 +50,9 @@ class Header extends Component{
         this.setState({ show: false });
      }
 
+     closeModal(){
+      this.setState({ smModalShow: false });
+     }
 
      showImports(name){
       if(name === undefined){
@@ -114,6 +121,15 @@ class Header extends Component{
          <div>No imported items</div> :
          this.state.itemsInImports.map(this.showImports) }
         </NavDropdown>
+        <NavItem>
+        <span
+          onClick={() => this.setState({ smModalShow: true })}>
+          How to Use
+        </span>
+        </NavItem>
+        <AboutModal
+         show={this.state.smModalShow}
+         onHide={this.closeModal} />
        </Nav>
      );
    }
