@@ -11,11 +11,16 @@ class JSPlayGround extends Component{
 
    this.state = { library: [`const packageName = require('packageName')` ] };
    this.getImport = this.getImport.bind(this);
+   this.getImportVersion = this.getImportVersion.bind(this);
  }
 
  componentWillMount(){
    this.setState({ library: this.state.library.concat([this.props.packageName]) });
  };
+
+ getImportVersion(){
+
+ }
 
  getImport(){
 
@@ -28,7 +33,6 @@ class JSPlayGround extends Component{
 
   const combineImports = (obj) => { return obj.join(''); };
   const finalImportString = combineImports(deleteDuplicates);
-
   return finalImportString
   } else {
      return '/*Place Imports Here*/';
@@ -36,7 +40,8 @@ class JSPlayGround extends Component{
  }
 
   render(){
-
+   console.log(this.props);
+   debugger;
    return (
      <div className="embedFrame">
         <Embed

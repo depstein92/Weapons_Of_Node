@@ -33,7 +33,6 @@ class SearchBar extends Component{
 
   renderInfo(input = this.state.value){
     let { fetchData } = this.props;
-    debugger;
     fetchData(input);
   }
 

@@ -67,7 +67,7 @@ class Header extends Component{
      }
 
     render(){
-
+    
     const alert = this.state.show === false ? (<div></div>) : (
           <Alert className="header-alertbox"
                  bsStyle="info"

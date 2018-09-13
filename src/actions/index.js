@@ -53,7 +53,7 @@ export const itemsFetchData = (word) => {
     dispatch(itemsFetchDataSuccess(details));
     dispatch(itemsAreLoading(false));
   });
-  
+
   sendData();
 
  }
@@ -79,15 +79,13 @@ export const addImport =  (obj) => {
 
   return  (dispatch) => {
 
-   const addExpToPackage = (...obj) => {
-
-     let item = `const ${obj} = require(${obj})_`
+   let addExpToPackage = (...obj) => {
+     let item = `const ${obj} = require('${obj}');_`
      return item;
    }
 
-   let expression = addExpToPackage`${obj}`;
-
-   let packageAssign = expression.replace(/,/ig, '');
+   let expression = addExpToPackage`${obj}`,
+       packageAssign = expression.replace(/,/ig, '');
 
    dispatch(packageNameSuccess(packageAssign));
    dispatch(isLibraryImported(true));
